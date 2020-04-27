@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\InmuebleResource;
 use App\Inmueble;
 use Illuminate\Http\Request;
 use Session;
@@ -79,10 +80,10 @@ class InmuebleController extends Controller
      * @param  \App\Inmueble  $inmueble
      * @return \Illuminate\Http\Response
      */
-    public function show(Inmueble $inmueble)
+    public function show(Inmueble $inmueble):InmuebleResource
     {   
         
-        return view('inmuebles.show', compact('inmueble'));
+        return  new InmuebleResource($inmueble);
     }
 
     /**
